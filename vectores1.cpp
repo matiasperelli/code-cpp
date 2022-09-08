@@ -31,9 +31,9 @@ float magnitudFuerza(fuerza f){
 fuerza getFuerza(){
     fuerza salida;
     float mag, angle;
-    cout << "Ingrese la magnitud de la fuerza: ";
+    cout << "Indique magnitud de la fuerza en Newton [N]: ";
     cin >> mag;
-    cout << "Ingrese el ángulo de la fuerza: ";
+    cout << "Indique el angulo de la fuerza en grados: ";
     cin >> angle;
     salida = getComponentes(mag,angle);
     return salida; 
