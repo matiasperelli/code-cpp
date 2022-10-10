@@ -6,34 +6,43 @@ int main() {
     cout <<"Calculadora de numeros complejos" << endl;
     cout <<"\nIngrese datos del primer numero complejo: " << endl;
     
-    int real1{};
+    float real1{};
     cout <<"Parte real: "; cin >> real1;
-    int imaginaria1{};
+    float imaginaria1{};
     cout <<"Parte imaginaria: "; cin >> imaginaria1;
     
     cout <<"\t\nIngrese datos del segundo numero complejo: " << endl;
-    int real2{};
+    float real2{};
     cout <<"Parte real: "; cin >> real2;
-    int imaginaria2{};
+    float imaginaria2{};
     cout <<"Parte imaginaria: "; cin >> imaginaria2;
     
-    int opcion{};
+    float opcion{};
     
-    cout <<"\n1 Suma, 2 Resta, 3 Multiplicacion "; cin >> opcion;
+    cout <<"\n1 Suma, 2 Resta, 3 Multiplicacion, 4 División "; cin >> opcion;
     
-    int real_resultado{};
-    int imaginario_resultado{};
+    float real_resultado{};
+    float imaginario_resultado{};
     
     if ( opcion == 1 ) {
     real_resultado = real1 + real2;
     imaginario_resultado = imaginaria1 + imaginaria2;
-  } else if ( opcion == 2 ) {
+  } 
+  else if ( opcion == 2 ) {
     real_resultado = real1 - real2;
     imaginario_resultado = imaginaria1 - imaginaria2;
-  } else if ( opcion == 3 ) {
+  } 
+  else if ( opcion == 3 ) {
     real_resultado = real1*real2 - imaginaria1*imaginaria2;
     imaginario_resultado = imaginaria1*real2 + real1*imaginaria2;
-  } else {
+  } 
+  else if ( opcion == 4 ) {
+     real_resultado = (real1 * real2 + imaginaria1 * imaginaria2) / (real2 * real2 + imaginaria2 * imaginaria2);
+     imaginario_resultado = (imaginaria1 * real2 - real1 * imaginaria2) / (real2 * real2 + imaginaria2 * imaginaria2);
+     cout.precision(2);
+    cout << real_resultado <<" + (" << imaginario_resultado << ")i" << endl;
+  }
+  else {
     return 0;
   }
 
