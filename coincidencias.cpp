@@ -8,7 +8,10 @@ int main(){
     cout <<"Digite 3 numeros: "; cin >> n1 >> n2 >> n3;
     cout <<"Digite un cuarto numero: "; cin >> n4;
     
-    if (n4==n1&&n4==n2){
+    if (n4==n1&&n4==n2&&n4==n3){
+        cout <<"Todos los numeros coinciden" << endl;
+    }
+    else if (n4==n1&&n4==n2){
         cout <<"el numero ingresado coincide con "<<n1<<" y "<<n2<<" " << endl;
     }
     else if (n4==n2&&n4==n3){
