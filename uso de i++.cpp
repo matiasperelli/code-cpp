@@ -10,7 +10,7 @@ int main() {
     
     while(i<=10){
         cout << i << endl;
-        i++; // aumenta el valor de "i" sumando uno
+        i++; // aumenta el iterador de uno en uno
     }
     
     getch(); //getch para usar la libreria
