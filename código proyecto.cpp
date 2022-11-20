@@ -2,72 +2,110 @@
 
 using namespace std;
 
-int main() {
-    cout <<"Calculadora de numeros complejos" << endl;
-    cout <<"\nIngrese datos del primer numero complejo: " << endl;
+class NumeroComplejo {
     
-    float real1{};
-    cout <<"Parte real: "; cin >> real1;
-    float imaginaria1{};
-    cout <<"Parte imaginaria: "; cin >> imaginaria1;
-    
-    cout <<"\t\nIngrese datos del segundo numero complejo: " << endl;
-    float real2{};
-    cout <<"Parte real: "; cin >> real2;
-    float imaginaria2{};
-    cout <<"Parte imaginaria: "; cin >> imaginaria2;
-    
-    float opcion{};
-    
-    cout <<"\n1 Suma, 2 Resta, 3 Multiplicacion, 4 División "; cin >> opcion;
-    
-    float real_resultado{};
-    float imaginario_resultado{};
-    
-    if ( opcion == 1 ) {
-    real_resultado = real1 + real2;
-    imaginario_resultado = imaginaria1 + imaginaria2;
-  } 
-  else if ( opcion == 2 ) {
-    real_resultado = real1 - real2;
-    imaginario_resultado = imaginaria1 - imaginaria2;
-  } 
-  else if ( opcion == 3 ) {
-    real_resultado = real1*real2 - imaginaria1*imaginaria2;
-    imaginario_resultado = imaginaria1*real2 + real1*imaginaria2;
-  } 
-  else if ( opcion == 4 ) {
-     real_resultado = (real1 * real2 + imaginaria1 * imaginaria2) / (real2 * real2 + imaginaria2 * imaginaria2);
-     imaginario_resultado = (imaginaria1 * real2 - real1 * imaginaria2) / (real2 * real2 + imaginaria2 * imaginaria2);
-     cout.precision(2);
-    cout << real_resultado <<" + (" << imaginario_resultado << ")i" << endl;
-  }
-  else {
-    return 0;
-  }
+    public:
+        double real;
+        double imaginario;
+        
+        void suma(NumeroComplejo a, NumeroComplejo b) {
+            
+            double real = a.real + b.real;
+            double imaginario = a.imaginario + b.imaginario;
+            NumeroComplejo z = NumeroComplejo(real, imaginario);
+            cout << z.real << "+" << z.imaginario << "i" << endl;
+        }
+         
+        void resta(NumeroComplejo a, NumeroComplejo b) {
+            
+            double real = a.real - b.real;
+            double imaginario = a.imaginario - b.imaginario;
+            NumeroComplejo z = NumeroComplejo(real, imaginario);
+            cout << z.real << "-" << z.imaginario << "i" << endl;
+        }
+         
+        void multiplicacion(NumeroComplejo a, NumeroComplejo b) {
+            
+            double real = a.real * b.real - a.imaginario * b.imaginario;
+            double imaginario = a.imaginario * b.real + a.real * b.imaginario;
+            NumeroComplejo z = NumeroComplejo(real, imaginario);
+            cout << z.real << "+" << z.imaginario << "i" << endl;
+        }
+        void division(NumeroComplejo a, NumeroComplejo b) {
+            
+            double real = (a.real * b.real + a.imaginario * b.imaginario) / (b.real * b.real + b.imaginario * b.imaginario);
+            double imaginario = (a.imaginario * b.real - a.real * b.imaginario) / (b.real * b.real + b.imaginario * b.imaginario);
+            NumeroComplejo z = NumeroComplejo(real, imaginario);
+            cout << z.real << "+" << z.imaginario << "i" << endl;
+        }
+            
+            //El constructor
+        NumeroComplejo(double real, double imaginario) {
+        this->real = real;
+        this->imaginario = imaginario;
+    }
+};
 
-  if ( imaginario_resultado == 0 ) {
-    std::cout << real_resultado << std::endl;
-  } else if ( real_resultado == 0 ) {
-    if ( imaginario_resultado == 1 ) {
+int main() {
+    
+    double realA;
+    double imaginarioA;
+    double realB;
+    double imaginarioB;
+
+    //input del usuario
+    cout <<"Ingrese datos del primer numero complejo" << endl;
+    cout <<"Parte real: "; cin >> realA;
+    cout <<"Parte imaginaria:"; cin >> imaginarioA;
+    
+    cout <<"Ingrese datos del segundo numero complejo" << endl;
+    cout <<"Parte real: "; cin >> realB;
+    cout <<"Parte imaginaria: "; cin >> imaginarioB;
+    
+    float opcion;
+    cout <<"\n1 Suma, 2 Resta, 3 Multiplicacion, 4 División "; cin >> opcion;
+
+    NumeroComplejo a = NumeroComplejo(realA, imaginarioA);
+    NumeroComplejo b = NumeroComplejo(realB, imaginarioB);
+
+    //opciones a elegir 
+    if( opcion == 1 ){
+    a.suma(a, b); 
+    }
+    else if ( opcion == 2 ) {
+    a.resta(a, b);
+    }
+    else if ( opcion == 3 ) {
+    a.multiplicacion(a, b);
+    }
+    else if ( opcion == 4 ) {
+    a.division(a, b);
+    }
+    else {
+        return 0;
+    }
+    if ( imaginarioB == 0 ) {
+        cout << realB << std::endl;
+  } else if ( realB == 0 ) {
+    if ( imaginarioB == 1 ) {
       std::cout << "i" << std::endl;
-    } else if ( imaginario_resultado == -1 ) {
+    } else if ( imaginarioB == -1 ) {
       std::cout << "-i" << std::endl;
     } else {
-      std::cout << imaginario_resultado << "i" << std::endl;
+      std::cout << imaginarioB << "i" << std::endl;
     }
   } else {
 
-    if ( imaginario_resultado <= -2 ) {
-      std::cout << real_resultado << " - " << (-imaginario_resultado) << "i" << std::endl;
-    } else if ( imaginario_resultado == -1 ) {
-      std::cout << real_resultado << " - i" << std::endl;
-    } else if ( imaginario_resultado == 1 ) {
-      std::cout << real_resultado << " + i" << std::endl;
+    if ( imaginarioB <= -2 ) {
+      std::cout << realB << " - " << (-imaginarioB) << "i" << std::endl;
+    } else if ( imaginarioB == -1 ) {
+      std::cout << realB << " - i" << std::endl;
+    } else if ( imaginarioB == 1 ) {
+      std::cout << realB << " + i" << std::endl;
     }  else {
-      std::cout << real_resultado << " + " << imaginario_resultado << "i" << std::endl;
+      std::cout << realB << " + " << imaginarioB << "i" << std::endl;
     }
   }
 
-  return 0;
+    return 0;
 }
