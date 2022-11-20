@@ -84,15 +84,15 @@ int main() {
     else {
         return 0;
     }
-    if ( imaginarioB == 0 ) {
-        cout << realB << std::endl;
-  } else if ( realB == 0 ) {
-    if ( imaginarioB == 1 ) {
+    if ( imaginarioA == 0 ) {
+        cout << realA << std::endl;
+  } else if ( realA == 0 ) {
+    if ( imaginarioA == 1 ) {
       std::cout << "i" << std::endl;
-    } else if ( imaginarioB == -1 ) {
+    } else if ( imaginarioA == -1 ) {
       std::cout << "-i" << std::endl;
     } else {
-      std::cout << imaginarioB << "i" << std::endl;
+      std::cout << imaginarioA << "i" << std::endl;
     }
   } else {
 
