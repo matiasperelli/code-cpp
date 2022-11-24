@@ -13,7 +13,29 @@ class NumeroComplejo {
             double real = a.real + b.real;
             double imaginario = a.imaginario + b.imaginario;
             NumeroComplejo z = NumeroComplejo(real, imaginario);
-            cout << z.real << "+" << z.imaginario << "i" << endl;
+            if(z.imaginario == 0){
+                cout << z.real << endl;
+            } else if (z.real == 0){
+                if (z.imaginario == 1){
+                cout << "i" << endl;
+            } else if (z.imaginario == -1){
+                cout << "-i" << endl;
+            } else {
+            cout << z.imaginario << "i" << endl;            
+            }
+        } else {
+            
+
+        if ( z.imaginario <= -2 ) {
+      cout << z.real << " - " << (-z.imaginario) << "i" << endl;
+    } else if ( z.imaginario == -1 ) {
+      cout << z.real << " - i" << endl;
+    } else if ( z.imaginario == 1 ) {
+      cout << z.real << " + i" << endl;
+    }  else {
+      cout << z.real << " + " << z.imaginario << "i" << endl;
+    }
+  }
         }
          
         void resta(NumeroComplejo a, NumeroComplejo b) {
@@ -29,7 +51,30 @@ class NumeroComplejo {
             double real = a.real * b.real - a.imaginario * b.imaginario;
             double imaginario = a.imaginario * b.real + a.real * b.imaginario;
             NumeroComplejo z = NumeroComplejo(real, imaginario);
-            cout << z.real << "+" << z.imaginario << "i" << endl;
+            if(z.imaginario == 0){
+                cout << z.real << endl;
+            } else if (z.real == 0){
+                if (z.imaginario == 1){
+                cout << "i" << endl;
+            } else if (z.imaginario == -1){
+                cout << "-i" << endl;
+            } else {
+            cout << z.imaginario << "i" << endl;            
+            }
+        } else {
+            
+
+        if ( z.imaginario <= -2 ) {
+      cout << z.real << " - " << (-z.imaginario) << "i" << endl;
+    } else if ( z.imaginario == -1 ) {
+      cout << z.real << " - i" << endl;
+    } else if ( z.imaginario == 1 ) {
+      cout << z.real << " + i" << endl;
+    }  else {
+      cout << z.real << " + " << z.imaginario << "i" << endl;
+    }
+  }
+            
         }
         void division(NumeroComplejo a, NumeroComplejo b) {
             
@@ -82,30 +127,8 @@ int main() {
     a.division(a, b);
     }
     else {
-        return 0;
+        cout <<"Ingrese una opcion valida " << endl;
     }
-    if ( imaginarioA == 0 ) {
-        cout << realA << std::endl;
-  } else if ( realA == 0 ) {
-    if ( imaginarioA == 1 ) {
-      std::cout << "i" << std::endl;
-    } else if ( imaginarioA == -1 ) {
-      std::cout << "-i" << std::endl;
-    } else {
-      std::cout << imaginarioA << "i" << std::endl;
-    }
-  } else {
-
-    if ( imaginarioB <= -2 ) {
-      std::cout << realB << " - " << (-imaginarioB) << "i" << std::endl;
-    } else if ( imaginarioB == -1 ) {
-      std::cout << realB << " - i" << std::endl;
-    } else if ( imaginarioB == 1 ) {
-      std::cout << realB << " + i" << std::endl;
-    }  else {
-      std::cout << realB << " + " << imaginarioB << "i" << std::endl;
-    }
-  }
-
+    
     return 0;
 }
