@@ -45,3 +45,16 @@ int main() {
 
   return 0;
 }
+
+#include <iostream>
+#include <cmath>
+#define PI 3.14159265
+
+void polar(NumeroComplejo a, NumeroComplejo b){
+    
+    double real = sqrt(real1*real1 + imaginaria1*imaginaria1);
+    double imaginario = atan(imaginaria1/real1) * 180/PI;
+    cout.precision(4);
+    
+    cout << real_resultado <<"[cos(" << imaginario_resultado << ")+isin(" << imaginario_resultado << ")]" << endl;
+}
