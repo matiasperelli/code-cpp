@@ -96,8 +96,29 @@ class NumeroComplejo {
             
             double real = (a.real * b.real + a.imaginario * b.imaginario) / (b.real * b.real + b.imaginario * b.imaginario);
             double imaginario = (a.imaginario * b.real - a.real * b.imaginario) / (b.real * b.real + b.imaginario * b.imaginario);
+            cout.precision(2);
             NumeroComplejo z = NumeroComplejo(real, imaginario);
-            cout << z.real << "+" << z.imaginario << "i" << endl;
+            if(a.imaginario && a.real && b.real && b.imaginario == 0){
+                cout << "Indeterminado" << endl;
+            } else if (z.real == 0){
+                if (z.imaginario == 1){
+                cout << "i" << endl;
+            } else if (z.imaginario == -1){
+                cout << "-i" << endl;
+            } else {
+            cout << z.imaginario << "i" << endl;            
+            }
+            } else {
+            if ( a.imaginario || b.imaginario <= -2 ) {
+            cout << z.real << " - " << (-z.imaginario) << "i" << endl;
+            } else if ( z.imaginario == -1 ) {
+            cout << z.real << " - i" << endl;
+            } else if ( z.imaginario == 1 ) {
+            cout << z.real << " + i" << endl;
+            }  else {
+            cout << z.real << " + " << z.imaginario << "i" << endl;
+            }
+            }
         }
             
             //El constructor
